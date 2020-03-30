@@ -11,7 +11,7 @@
         public function get_cocktails()
         {
             $coc = new CCocktails();
-            $buffer = $coc->get_cocktails();
+            $buffer = $coc->get_cocktailsSelected();
             foreach($buffer as $cocktail){
                 echo "    <div class=\"card shadow m-1 col-xl-2 col-lg-3 col-sm-6 cocktail\" id=\"" . $cocktail["ID"] . "\">\n";
                 echo "    <div class=\"card-header py-3\">\n";

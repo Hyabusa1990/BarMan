@@ -35,6 +35,11 @@ class NAVI
         echo "            <div class=\"sidebar-heading\">\n";
         echo "                Einstellungen\n";
         echo "            </div>\n";
+         echo "            <li class=\"nav-item\">\n";
+        echo "                <a class=\"nav-link\" href=\"bottle.php\">\n";
+        echo "                    <i class=\"fas fa-fw fa-wine-bottle\"></i>\n";
+        echo "                    <span>Flaschen verwaltung</span></a>\n";
+        echo "            </li>\n";
         echo "\n";
         echo "        </ul>\n";
         echo "        <!-- End of Sidebar -->";

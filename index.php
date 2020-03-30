@@ -43,13 +43,30 @@
               $cock->get_cocktails();
             ?>
             <!-- Modal -->
-               <div class="modal fade" id="empModal" role="dialog">
+               <div class="modal fade" id="empModalCreate" role="dialog">
                 <div class="modal-dialog modal-dialog-centered">
 
                  <!-- Modal content-->
                  <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title">Cocktail wird erstellt</h4>
+                  </div>
+                  <div class="modal-body">
+
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                 </div>
+                </div>
+               </div>
+               <!-- Modal -->
+               <div class="modal fade" id="empModalFinish" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+
+                 <!-- Modal content-->
+                 <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Fertig</h4>
                   </div>
                   <div class="modal-body">
 
@@ -115,20 +132,22 @@
               // Add response in Modal body
               $('.modal-body').html("<i class=\"fa fa-glass-martini-alt fa-spin fa-3x fa-fw\"></i>");
               $('.modal-footer').html("");
-              $('#empModal').modal({backdrop: "static", keyboard: false})
+              $('.modal-title').html("Cocktail wird erstellt");
+              $('#empModalCreate').modal({backdrop: "static", keyboard: false});
 
               // Display Modal
-              $('#empModal').modal('show');
+              $('#empModalCreate').modal('show');
             },
             success: function(response){
               // Add response in Modal body
-              $('#empModal').modal({backdrop: true, keyboard: true})
+              //$('#empModal').modal({backdrop: true, keyboard: true})
+              $('#empModalCreate').modal('hide');
               $('.modal-body').html(response);
-              $('.modal-title').html("Fertig")
+              $('.modal-title').html("Fertig");
               $('.modal-footer').html("<button type=\"button\" class=\"btn btn-success\" data-dismiss=\"modal\">Close</button>");
 
               // Display Modal
-              $('#empModal').modal('show');
+              $('#empModalFinish').modal('show');
             }
           });
          });

@@ -10,9 +10,9 @@
     *
     */
     define("DBHOST", "localhost");
-    define("DB", "barman");
-    define("DBUSER", "BarMan");
-    define("DBPW", "BarMan");
+    define("DB", "barman-db");
+    define("DBUSER", "root");
+    define("DBPW", "");
 
     /*
     *

@@ -8,26 +8,17 @@
       require_once "settings.php";
       require_once "model/mod-header.php";
       require_once "model/mod-navi.php";
-      require_once "model/mod-bottle.php";
+      require_once "model/mod-receipt.php";
 
 
       HEADER::GET_HEADER();
 
       if(isset($_GET)){
-        if(isset($_GET["uptBot"])){
-            MBottle::update_bottle($_GET['uptBot'], $_GET['name'], $_GET['multi']);
-            echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
-            echo "              Flasche gespeichert!\n";
-            echo "            </div>";
+        if(isset($_GET["unCheckRec"])){
+           MReceipt::uncheck_receipt($_GET["unCheckRec"]);
         }
-        else if(isset($_GET["addBot"])){
-            MBottle::add_bottle($_GET['name'], $_GET['multi']);
-            echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
-            echo "              Flasche gespeichert!\n";
-            echo "            </div>";
-        }
-        else if(isset($_GET["bottle1"])){
-            MBottle::save_bottle($_GET);
+        else if(isset($_GET["checkRec"])){
+           MReceipt::check_receipt($_GET["checkRec"]);
         }
       }
   ?>
@@ -53,17 +44,10 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Flaschen Verwaltung</h1>
+          <h1 class="h3 mb-4 text-gray-800">Cocktail/Rezept Verwaltung</h1>
 
               <?php
-              if(isset($_GET["editBot"])){
-                MBottle::get_bottleList($_GET['editBot']);
-              }
-              else{
-                MBottle::get_bottlePortSelect();
-                MBottle::get_bottleList();
-              }
-
+                MReceipt::get_receiptList();
               ?>
 
         </div>

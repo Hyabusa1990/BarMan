@@ -1,0 +1,66 @@
+<?php
+    if (!defined("WERDICHLEGALGERUFEN")) {
+        echo ("YOU CANNOT DISPLAY THIS FILE DIRECTLY");
+        exit();
+    }
+
+    class CBottle
+    {
+        public static function get_bottles()
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+            $bottles = array();
+
+            $statement = $pdo->prepare("SELECT * FROM `bottle` ORDER BY `name` ASC;");
+            $statement->execute();
+            while($row = $statement->fetch()) {
+                $bottles[] = $row;
+            }
+            return $bottles;
+        }
+
+        public static function get_bottle($pID)
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+            $bottle = array();
+
+            $statement = $pdo->prepare("SELECT * FROM `bottle` WHERE `ID` = :ID;");
+            $statement->execute(array("ID" => $pID));
+            while($row = $statement->fetch()) {
+                $bottle = $row;
+            }
+            return $bottle;
+        }
+
+        public static function release_bottlePos()
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+
+            $statement = $pdo->prepare("UPDATE `bottle` SET `port`= 0;");
+            $statement->execute();
+        }
+
+        public static function save_bottlePos($pID, $pPort)
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+
+            $statement = $pdo->prepare("UPDATE `bottle` SET `port`= :PORT WHERE `ID` = :ID;");
+            $statement->execute(array(":PORT" => $pPort, ":ID" => $pID));
+        }
+
+        public static function update_bottle($pID, $pName, $pMulti)
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+
+            $statement = $pdo->prepare("UPDATE `bottle` SET `name` = :NAME, `multi` = :MULTI WHERE `bottle`.`ID` = :ID;");
+            $statement->execute(array(":NAME" => $pName, ":ID" => $pID, ':MULTI' => $pMulti));
+        }
+
+        public static function save_bottle($pName, $pMulti)
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+            $statement = $pdo->prepare("INSERT INTO `bottle` (`name`, `multi`, `port`) VALUES (:NAME, :MULTI, '0');");
+            $statement->execute(array(":NAME" => $pName, ":MULTI" => $pMulti));
+        }
+    }
+?>

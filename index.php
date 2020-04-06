@@ -7,7 +7,7 @@
       define("WERDICHLEGALGERUFEN", 1);
       require_once "settings.php";
       require_once "model/mod-header.php";
-      require_once "model/mod-navi.php";
+      require_once "model/mod-naviCocktails.php";
       require_once "model/mod-cocktails.php";
 
 
@@ -20,8 +20,7 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-     <?php
+      <?php
         NAVI::GET_NAVI();
      ?>
 
@@ -35,7 +34,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Coctails</h1>
+          <h1 class="h3 mb-4 text-gray-800">BarMan</h1>
           <div class="row">
 
             <?php
@@ -55,6 +54,7 @@
 
                   </div>
                   <div class="modal-footer">
+                      <a href="create.php?NOTSTOP=1" class="btn btn-danger btn-icon-split"><span class="icon text-white-50"><i class="fas fa-times-circle"></i></span><span class="text">STOPP</span></a>
                   </div>
                  </div>
                 </div>
@@ -131,7 +131,6 @@
             beforeSend: function(){
               // Add response in Modal body
               $('.modal-body').html("<i class=\"fa fa-glass-martini-alt fa-spin fa-3x fa-fw\"></i>");
-              $('.modal-footer').html("");
               $('.modal-title').html("Cocktail wird erstellt");
               $('#empModalCreate').modal({backdrop: "static", keyboard: false});
 

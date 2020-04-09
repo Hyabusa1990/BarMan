@@ -62,5 +62,20 @@
             $statement = $pdo->prepare("INSERT INTO `bottle` (`name`, `multi`, `port`) VALUES (:NAME, :MULTI, '0');");
             $statement->execute(array(":NAME" => $pName, ":MULTI" => $pMulti));
         }
+
+        public static function delelte_bottle($pID)
+        {
+            try{
+                $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $statement = $pdo->prepare("DELETE FROM `bottle` WHERE `bottle`.`ID` = :ID;");
+                $statement->execute(array(":ID" => $pID));
+                return array("STATUS"=>"OK", "MSG"=>"");
+            }
+            catch (PDOException $e){
+                return array("STATUS"=>"ERROR", "MSG"=>$e->getMessage());
+            }
+
+        }
     }
 ?>

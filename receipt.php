@@ -20,6 +20,30 @@
         else if(isset($_GET["checkRec"])){
            MReceipt::check_receipt($_GET["checkRec"]);
         }
+        else if(isset($_GET["newRec"])){
+             if(isset($_POST)){
+                 MReceipt::add_receipt($_POST, $_FILES);
+                echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
+                echo "              Rezept angelegt!\n";
+                echo "            </div>";
+             }
+        }
+        else if(isset($_GET["uptRec"])){
+             if(isset($_POST)){
+                 MReceipt::update_receipt($_GET["uptRec"], $_POST, $_FILES);
+                echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
+                echo "              Rezept gespeichert!\n";
+                echo "            </div>";
+             }
+        }
+        else if(isset($_GET['delRec'])){
+            MReceipt::delete_receipt($_GET['delRec']);
+            echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
+            echo "              Rezept gel&ouml;scht!\n";
+            echo "            </div>";
+            header( "refresh:1;url=receipt.php" );
+            exit;
+        }
       }
   ?>
 
@@ -47,13 +71,36 @@
           <h1 class="h3 mb-4 text-gray-800">Cocktail/Rezept Verwaltung</h1>
 
               <?php
+              if(isset($_GET["editRec"])){
+                MReceipt::get_receiptEdit($_GET["editRec"]);
+              }
+              else{
                 MReceipt::get_receiptList();
+                MReceipt::get_receiptCreate();
+              }
               ?>
 
         </div>
         <!-- /.container-fluid -->
 
       </div>
+
+      <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Rezept L&ouml;schen
+                </div>
+                <div class="modal-body">
+                    M&ouml;chten Sie das Rezept wirklich l&ouml;schen?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbruch</button>
+                    <a class="btn btn-danger btn-ok">L&ouml;schen</a>
+                </div>
+            </div>
+        </div>
+    </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -87,6 +134,12 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <script>
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+    });
+  </script>
 
   <!-- Loading Box -->
 

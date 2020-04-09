@@ -30,6 +30,7 @@ function idset(id, string) {
 }
 
 var stoppuhr = (function() {
+    var xhttp = new XMLHttpRequest();
     var stop = 1;
     var secs = 0;
     var msecs = 0;
@@ -40,9 +41,13 @@ var stoppuhr = (function() {
             ml = pML;
             stoppuhr.clear();
             stop = 0;
+            xhttp.open("GET", "create.php?MESSURE=1&START=1", true);
+            xhttp.send();
         },
         stop: function() {
             stop = 1;
+            xhttp.open("GET", "create.php?MESSURE=1&STOP=1", true);
+            xhttp.send();
         },
         clear: function() {
             stoppuhr.stop();

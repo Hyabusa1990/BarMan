@@ -21,11 +21,7 @@
       }
       else if(isset($_GET['CLEAN']))
       {
-          $port = 1;
-          if(CSettings::get_setting('cleanPortLast') == 1)
-          {
-            $port = CSettings::get_setting('countPorts');
-          }
+          $port = $_GET['CLEAN'];
           //exec(GPIO-FILEPATH . "BarMan-gpio.py $port");
           usleep((CSettings::get_setting('cleanAmmount') * CSettings::get_setting('defaultTime')) * 1000000);
           //exec(GPIO-FILEPATH . "BarMan-gpio.py");

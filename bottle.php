@@ -23,13 +23,35 @@
         else if(isset($_GET["addBot"])){
             MBottle::add_bottle($_GET['name'], $_GET['multi']);
             echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
-            echo "              Flasche gespeichert!\n";
+            echo "              Flasche angelegt!\n";
             echo "            </div>";
+        }
+        else if(isset($_GET["delBot"])){
+            $stat = MBottle::delete_bottle($_GET["delBot"]);
+            if($stat["STATUS"] == "OK"){
+                echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
+                echo "              Flasche gel&ouml;scht!\n";
+                echo "            </div>";
+            }
+            else{
+                if(DEBUG){
+                    echo "            <div class=\"alert alert-danger\" role=\"alert\">\n";
+                    echo "              " . $stat["MSG"] . "\n";
+                    echo "            </div>";
+                }
+                else{
+                    echo "            <div class=\"alert alert-danger\" role=\"alert\">\n";
+                    echo "              Flasche wird noch in Rezept verwendet!\n";
+                    echo "            </div>";
+                }
+            }
         }
         else if(isset($_GET["bottle1"])){
             MBottle::save_bottle($_GET);
         }
       }
+
+      MBottle::get_TimerScript();
   ?>
 
 </head>
@@ -70,6 +92,22 @@
         <!-- /.container-fluid -->
 
       </div>
+      <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Flasche L&ouml;schen
+                </div>
+                <div class="modal-body">
+                    M&ouml;chten Sie die Flasche wirklich l&ouml;schen?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbruch</button>
+                    <a class="btn btn-danger btn-ok">L&ouml;schen</a>
+                </div>
+            </div>
+        </div>
+    </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -104,6 +142,11 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
+  <script>
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+    });
+  </script>
   <!-- Loading Box -->
 
 </body>

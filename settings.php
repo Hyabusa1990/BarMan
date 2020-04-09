@@ -22,4 +22,6 @@
     define("GPIO-FILEPATH", "C:\TEST");
 
     define("__ROOT__", dirname(__FILE__));
+
+    define("DEBUG", 0);
 ?>

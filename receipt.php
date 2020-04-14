@@ -44,6 +44,14 @@
             header( "refresh:1;url=receipt.php" );
             exit;
         }
+        else if(isset($_GET["newImpRec"])){
+             if(isset($_POST)){
+                MReceipt::import_receipt($_POST);
+                echo "            <div class=\"alert alert-success\" role=\"alert\">\n";
+                echo "              Rezept importiert!\n";
+                echo "            </div>";
+             }
+        }
       }
   ?>
 
@@ -74,8 +82,17 @@
               if(isset($_GET["editRec"])){
                 MReceipt::get_receiptEdit($_GET["editRec"]);
               }
+              else if(isset($_GET["impRec"])){
+                if (count($_FILES) > 0) {
+                    if (is_uploaded_file($_FILES['importFile']['tmp_name'])) {
+                        $jsonData = file_get_contents($_FILES['importFile']['tmp_name']);
+                        MReceipt::get_importEdit($jsonData);
+                    }
+                }
+              }
               else{
                 MReceipt::get_receiptList();
+                MReceipt::get_receiptImport();
                 MReceipt::get_receiptCreate();
               }
               ?>

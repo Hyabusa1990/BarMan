@@ -11,7 +11,7 @@ class NAVI
         echo "        <ul class=\"navbar-nav bg-gradient-primary sidebar sidebar-dark accordion\" id=\"accordionSidebar\">\n";
         echo "\n";
         echo "            <!-- Sidebar - Brand -->\n";
-        echo "            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"index.html\">\n";
+        echo "            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"index.php\">\n";
         echo "                <div class=\"sidebar-brand-icon rotate-n-15\">\n";
         echo "                    <i class=\"fas fa-cocktail\"></i>\n";
         echo "                </div>\n";

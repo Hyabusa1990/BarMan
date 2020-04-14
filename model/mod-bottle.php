@@ -95,7 +95,7 @@
                     echo "</form>";
                 }
                 echo "<hr>\n";
-                echo "<h3>Multiplikator Messen</h3><p>Flasche mit entsprechendem Inhalt an Position 1 anschlie&szilg;en</p>\n";
+                echo "<h3>Multiplikator Messen</h3><p>Flasche mit entsprechendem Inhalt an Position 1 anschlie&szlig;en</p>\n";
                 echo "<button onclick=\"stoppuhr.start(10);\" class=\"btn btn-info\">Start 10ml</button>\n";
                 echo "<button onclick=\"stoppuhr.start(20);\" class=\"btn btn-info\">Start 20ml</button>\n";
                 echo "<button onclick=\"stoppuhr.start(50);\" class=\"btn btn-info\">Start 50ml</button>\n";

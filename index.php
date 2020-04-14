@@ -21,7 +21,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
       <?php
-        NAVI::GET_NAVI();
+        //NAVI::GET_NAVI();
      ?>
 
     <!-- Content Wrapper -->
@@ -34,7 +34,15 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">BarMan</h1>
+          <!-- <h1 class="h3 mb-4 text-gray-800">BarMan</h1> -->
+          <div class="row bg-gradient-primary text-center">
+            <div class="container my-auto">
+                <div class="text-gray-100 rotate-n-15">
+                    <i class="fas fa-cocktail"></i>
+                </div>
+                <h1 class="text-gray-100 text-lg text-center">BarMan</h1>
+            </div>
+          </div>
           <div class="row">
 
             <?php
@@ -84,7 +92,7 @@
       </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
+      <!-- Footer
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -92,7 +100,7 @@
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
+      End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->

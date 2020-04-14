@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <html>
-    <meta http-equiv="refresh" content="0; URL=../bottle.php">
+    <meta http-equiv="refresh" content="0; URL=../receipt.php">
 <head>
 <title></title>
 </head>

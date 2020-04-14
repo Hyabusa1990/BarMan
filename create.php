@@ -22,8 +22,9 @@
       else if(isset($_GET['CLEAN']))
       {
           $port = $_GET['CLEAN'];
+          $ammount = $_GET['AMMOUNT'];
           //exec(GPIO-FILEPATH . "BarMan-gpio.py $port");
-          usleep((CSettings::get_setting('cleanAmmount') * CSettings::get_setting('defaultTime')) * 1000000);
+          usleep(($ammount * CSettings::get_setting('defaultTime')) * 1000000);
           //exec(GPIO-FILEPATH . "BarMan-gpio.py");
           echo "BarMan gereinigt!";
       }
@@ -43,6 +44,10 @@
       {
            //exec(GPIO-FILEPATH . "BarMan-gpio.py");
            header("Location: index.php");
+      }
+      else if(isset($_GET["STOP"]))
+      {
+           //exec(GPIO-FILEPATH . "BarMan-gpio.py");
       }
       else
       {

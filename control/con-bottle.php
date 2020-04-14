@@ -32,6 +32,19 @@
             return $bottle;
         }
 
+        /*public static function get_bottleFromName($pName)
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+            $bottle = NULL;
+
+            $statement = $pdo->prepare("SELECT * FROM `bottle` WHERE `name` LIKE :NAME;");
+            $statement->execute(array("NAME" => $pName));
+            while($row = $statement->fetch()) {
+                $bottle = $row;
+            }
+            return $bottle;
+        } */
+
         public static function release_bottlePos()
         {
             $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
@@ -61,6 +74,7 @@
             $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
             $statement = $pdo->prepare("INSERT INTO `bottle` (`name`, `multi`, `port`) VALUES (:NAME, :MULTI, '0');");
             $statement->execute(array(":NAME" => $pName, ":MULTI" => $pMulti));
+            return $pdo->lastInsertId();
         }
 
         public static function delelte_bottle($pID)

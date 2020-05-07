@@ -19,7 +19,7 @@
     * GPIO Vars
     *
     */
-    define("GPIO-FILEPATH", "C:\TEST");
+    define("GPIO-FILEPATH", "C:\TEST\BarMan-gpio.py");
 
     define("__ROOT__", dirname(__FILE__));
 

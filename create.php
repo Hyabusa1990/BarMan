@@ -5,8 +5,6 @@
       require_once "control/con-cocktails.php";
       require_once "control/con-settings.php";
 
-      var_dump(GPIOFILEPATH);
-
       if(isset($_GET["ID"]))
       {
           $cock = new CCocktails();

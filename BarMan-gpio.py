@@ -12,6 +12,7 @@ import sys;
 
 def init_GPIO():
     #init GPIO
+    GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
 
     #Port 1

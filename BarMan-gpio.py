@@ -33,13 +33,13 @@ def init_GPIO():
     
 def set_GPIO_OFF():
     GPIO.output(17, GPIO.LOW)
-	GPIO.output(22, GPIO.LOW)
-	GPIO.output(5, GPIO.LOW)
-	GPIO.output(6, GPIO.LOW)
-	GPIO.output(13, GPIO.LOW)
-	GPIO.output(26, GPIO.LOW)
-	GPIO.output(23, GPIO.LOW)
-	GPIO.output(24, GPIO.LOW)
+    GPIO.output(22, GPIO.LOW)
+    GPIO.output(5, GPIO.LOW)
+    GPIO.output(6, GPIO.LOW)
+    GPIO.output(13, GPIO.LOW)
+    GPIO.output(26, GPIO.LOW)
+    GPIO.output(23, GPIO.LOW)
+    GPIO.output(24, GPIO.LOW)
     
 
 port = int(sys.argv[1])

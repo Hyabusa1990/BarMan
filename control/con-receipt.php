@@ -88,6 +88,20 @@
             return $pos;
         }
 
+        public static function get_receiptNotBottle($pID)
+        {
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+
+            $bottles = array();
+            $statement = $pdo->prepare("SELECT `bottle`.`name` AS Name FROM `bottle` JOIN `recipe` ON `bottle`.`ID` = `recipe`.`bottles_ID` WHERE `recipe`.`cocktails_ID` = :ID AND `bottle`.`port` = 0");
+            $statement->execute(array(":ID" => $pID));
+            while($row = $statement->fetch()) {
+                $bottles[] = $row["Name"];
+            }
+
+            return $bottles;
+        }
+
         public static function add_coctail($pName, $pDes, $pImg)
         {
             $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' . DB . ';charset=utf8', DBUSER, DBPW);

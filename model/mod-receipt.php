@@ -42,7 +42,12 @@
                     }
                     else{
                              MReceipt::uncheck_receipt($receipt["ID"]);
-                             echo "                    <td><div class=\"btn btn-danger btn-circle btn-sm\"><i class=\"fas fa-times\"></i></div></td>\n";
+                             $bottles = CReceipt::get_receiptNotBottle($receipt["ID"]);
+                             $buffer = "Es fehlen folgende Flaschen:";
+                             foreach($bottles as $bot){
+                                $buffer = $buffer ." [$bot]";
+                             }
+                             echo "                    <td><div class=\"btn btn-danger btn-circle btn-sm\"><i class=\"fas fa-times\" data-toggle=\"tooltip\" title=\"$buffer\"></i></div></td>\n";
                     }
                     echo "                    <td><a href=\"receipt.php?editRec=" . $receipt["ID"] . "\" class=\"btn btn-primary btn-icon-split btn-sm\"><span class=\"icon text-white-50\"><i class=\"fas fa-edit\"></i></span><span class=\"text\">Bearbeiten</span></a><br>";
                     echo "                          <a href=\"#\" data-href=\"receipt.php?delRec=" . $receipt["ID"] . "\" data-toggle=\"modal\" data-target=\"#confirm-delete\" class=\"btn btn-danger btn-icon-split btn-sm\"><span class=\"icon text-white-50\"><i class=\"fas fa-trash\"></i></span><span class=\"text\">L&ouml;schen</span></a><br>\n";
@@ -284,8 +289,8 @@
                 echo "<div class=\"form-group\">\n";
                 echo "    <label class=\"col-md-4 control-label\" for=\"picture\">Bild</label>\n";
                 echo "    <div class=\"col-md-4\">\n";
-                echo "<img height=\"75\" src=\"data:image;base64, " . base64_encode($data["picture"]) . "\"/>\n";
-                echo "        <input id=\"picture\" name=\"picture\" type=\"hidden\" value=\"" . base64_encode($data["picture"]) . "\">\n";
+                echo "<img height=\"75\" src=\"data:image;base64, " . $data["picture"] . "\"/>\n";
+                echo "        <input id=\"picture\" name=\"picture\" type=\"hidden\" value=\"" . $data["picture"] . "\">\n";
                 echo "    </div>\n";
                 echo "</div>";
                 echo "        <input id=\"countPorts\" name=\"countPorts\" type=\"hidden\" value=\"" . count($data["bottles"]) . "\">\n";

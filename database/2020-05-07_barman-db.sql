@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bottle` (
   `multi` float NOT NULL DEFAULT 1,
   `port` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `cocktails` (
   `picture` mediumblob NOT NULL,
   `selected` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

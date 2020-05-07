@@ -41,8 +41,8 @@ def set_GPIO_OFF():
     GPIO.output(23, GPIO.LOW)
     GPIO.output(24, GPIO.LOW)
     
-if len(sys.argv) > 0:
-    port = int(float(sys.argv[0]))
+if len(sys.argv) > 1:
+    port = int(float(sys.argv[1]))
 else:
     port = 0
 

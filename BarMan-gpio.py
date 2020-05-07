@@ -48,36 +48,36 @@ set_GPIO_OFF()
 
 if port == 1:
     set_GPIO_OFF()
-	GPIO.output(17, GPIO.HIGH)
+    GPIO.output(17, GPIO.HIGH)
     print("PORT 1 - ON")
 elif port == 2:
     set_GPIO_OFF()
-	GPIO.output(22, GPIO.HIGH)
+    GPIO.output(22, GPIO.HIGH)
     print("PORT 2 - ON")
 elif port == 3:
     set_GPIO_OFF()
-	GPIO.output(5, GPIO.HIGH)
+    GPIO.output(5, GPIO.HIGH)
     print("PORT 3 - ON")
 elif port == 4:
     set_GPIO_OFF()
-	GPIO.output(6, GPIO.HIGH)
+    GPIO.output(6, GPIO.HIGH)
     print("PORT 4 - ON")
 elif port == 5:
     set_GPIO_OFF()
-	GPIO.output(13, GPIO.HIGH)
+    GPIO.output(13, GPIO.HIGH)
     print("PORT 5 - ON")
 elif port == 6:
     set_GPIO_OFF()
-	GPIO.output(26, GPIO.HIGH)
+    GPIO.output(26, GPIO.HIGH)
     print("PORT 6 - ON")
 elif port == 7:
     set_GPIO_OFF()
-	GPIO.output(23, GPIO.HIGH)
+    GPIO.output(23, GPIO.HIGH)
     print("PORT 7 - ON")
 elif port == 8:
-	set_GPIO_OFF()
-	GPIO.output(24, GPIO.HIGH)
+    set_GPIO_OFF()
+    GPIO.output(24, GPIO.HIGH)
     print("PORT 8 - ON")
 else:
-	set_GPIO_OFF()
+    set_GPIO_OFF()
     print("ALL PORTS LOW")

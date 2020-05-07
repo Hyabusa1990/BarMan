@@ -13,9 +13,9 @@
           $rec = $cock->get_cocktailReciep($_GET["ID"]);
 
           foreach($rec as $bottle){
-            //exec(GPIO-FILEPATH . " $bottle['port']");
+            exec(GPIO-FILEPATH . " $bottle['port']");
             usleep(($bottle["ammount"] * $bottle["multi"] * CSettings::get_setting('defaultTime')) * 1000000);
-            //exec(GPIO-FILEPATH . "");
+            exec(GPIO-FILEPATH . "");
           }
           echo "Cocktail Erstellt! Guten Genuss";
       }
@@ -23,9 +23,9 @@
       {
           $port = $_GET['CLEAN'];
           $ammount = $_GET['AMMOUNT'];
-          //exec(GPIO-FILEPATH . " $port");
+          exec(GPIO-FILEPATH . " $port");
           usleep(($ammount * CSettings::get_setting('defaultTime')) * 1000000);
-          //exec(GPIO-FILEPATH);
+          exec(GPIO-FILEPATH);
           echo "BarMan gereinigt!";
       }
       else if(isset($_GET['MESSURE']))
@@ -33,25 +33,25 @@
             if(isset($_GET["START"]))
             {
                 $port = $_GET["START"];
-                //exec(GPIO-FILEPATH . " $port");
+                exec(GPIO-FILEPATH . " $port");
             }
             else
             {
-               //exec(GPIO-FILEPATH);
+               exec(GPIO-FILEPATH);
             }
       }
       else if(isset($_GET["NOTSTOP"]))
       {
-           //exec(GPIO-FILEPATH);
+           exec(GPIO-FILEPATH);
            header("Location: index.php");
       }
       else if(isset($_GET["STOP"]))
       {
-           //exec(GPIO-FILEPATH);
+           exec(GPIO-FILEPATH);
       }
       else
       {
-          //exec(GPIO-FILEPATH);
+          exec(GPIO-FILEPATH);
           echo "FEHLER - KEIN COCKTAIL AUSGEWAEHLT";
       }
   ?>

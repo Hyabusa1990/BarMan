@@ -8,7 +8,7 @@
     {
         public static function get_setting($pKey)
         {
-            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             $val = "";
 
             $statement = $pdo->prepare("SELECT * FROM `settings` WHERE `key` LIKE :KEY;");
@@ -21,7 +21,7 @@
 
         public static function set_setting($pKey, $pValue)
         {
-            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW);
+            $pdo = new PDO('mysql:host=' . DBHOST . ';dbname=' .DB, DBUSER, DBPW, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             $val = "";
 
             $statement = $pdo->prepare("REPLACE INTO `settings` (`key`, `value`) VALUES (:KEY, :VAL);");

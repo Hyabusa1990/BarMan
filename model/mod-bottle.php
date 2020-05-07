@@ -31,10 +31,10 @@
                     echo "            <option value=\"0\">-- LEER --</option>\n";
                     foreach($bottles as $bottle){
                         if($bottle["port"] == $i){
-                            echo "            <option selected value=\"" . $bottle['ID'] . "\">" . utf8_encode($bottle["name"]) . "</option>\n";
+                            echo "            <option selected value=\"" . $bottle['ID'] . "\">" . $bottle["name"] . "</option>\n";
                         }
                         else{
-                            echo "            <option value=\"" . $bottle['ID'] . "\">" . utf8_encode($bottle["name"]) . "</option>\n";
+                            echo "            <option value=\"" . $bottle['ID'] . "\">" . $bottle["name"] . "</option>\n";
                         }
                     }
                     echo "        </select>\n";
@@ -70,7 +70,7 @@
                     echo "    <div class=\"form-group mb-2\">\n";
                     echo "        <input type=\"hidden\" class=\"form-control\" name=\"uptBot\" id=\"uptBot\" value=\"" . $bottle['ID'] . "\">\n";
                     echo "          <label for=\"name\">Flaschenname:&nbsp;</label>\n";
-                    echo "        <input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\" value=\"" . utf8_encode($bottle['name']) . "\">\n";
+                    echo "        <input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\" value=\"" . $bottle['name'] . "\">\n";
                     echo "    </div>\n";
                     echo "    <div class=\"form-group mx-sm-3 mb-2\">\n";
                     echo "          <label for=\"multi\">Multiplikator:&nbsp;</label>\n";
@@ -112,7 +112,7 @@
                 echo "                </tr>\n";
                 foreach($bottles as $bottle){
                     echo "                <tr>\n";
-                    echo "                    <td>" . utf8_encode($bottle["name"]) . "</td>\n";
+                    echo "                    <td>" . $bottle["name"] . "</td>\n";
                     echo "                    <td>" . $bottle["multi"] . "</td>\n";
 //                    echo "                    <td><a href=\"bottle.php?editBot=" . $bottle["ID"] . "\"><i class=\"fas fa-edit\"></i></a></td>\n";
                     echo "                    <td><a href=\"bottle.php?editBot=" . $bottle["ID"] . "\" class=\"btn btn-primary btn-icon-split btn-sm\"><span class=\"icon text-white-50\"><i class=\"fas fa-edit\"></i></span><span class=\"text\">Bearbeiten</span></a><br>";

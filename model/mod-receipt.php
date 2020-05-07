@@ -29,8 +29,8 @@
                 echo "                </tr>\n";
                 foreach($receipts as $receipt){
                     echo "                <tr>\n";
-                    echo "                    <td>" . utf8_encode($receipt["name"]) . "</td>\n";
-                    echo "                    <td>" . utf8_encode($receipt["des"]) . "</td>\n";
+                    echo "                    <td>" . $receipt["name"] . "</td>\n";
+                    echo "                    <td>" . $receipt["des"] . "</td>\n";
                     echo "                    <td><img height=\"75\" src=\"data:image;base64, " . base64_encode($receipt["picture"]) . "\"/></td>\n";
                     if(CReceipt::check_receiptPosi($receipt["ID"]) > 0){
                         if($receipt['selected']){
@@ -100,7 +100,7 @@
                     echo "        <select id=\"bottle$i\" name=\"bottle$i\" class=\"form-control\">\n";
                     echo "            <option selected value=\"0\">-- LEER --</option>\n";
                     foreach($bottles as $bottle){
-                        echo "            <option value=\"" . $bottle['ID'] . "\">" . utf8_encode($bottle["name"]) . "</option>\n";
+                        echo "            <option value=\"" . $bottle['ID'] . "\">" . $bottle["name"] . "</option>\n";
                     }
                     echo "        </select>\n";
                     echo "    <label class=\"col-md-4 control-label\" for=\"ammount$i\">M&auml;nge in ml f&uuml;r Zutat $i</label>\n";
@@ -140,13 +140,13 @@
                 echo "<fieldset>\n";
                 echo "\n";
                 echo "<!-- Form Name -->\n";
-                echo "<legend>Rezept - " . utf8_encode($cocktail["name"]) . " - bearbeiten</legend>\n";
+                echo "<legend>Rezept - " . $cocktail["name"] . " - bearbeiten</legend>\n";
                 echo "\n";
                 echo " <!-- Text input-->\n";
                 echo "<div class=\"form-group\">\n";
                 echo "    <label class=\"col-md-4 control-label\" for=\"name\">Name des Cocktails</label>\n";
                 echo "    <div class=\"col-md-7\">\n";
-                echo "    <input id=\"name\" name=\"name\" type=\"text\" placeholder=\"Name\" class=\"form-control input-md\" required=\"\" value=\"" . utf8_encode($cocktail["name"]) . "\">\n";
+                echo "    <input id=\"name\" name=\"name\" type=\"text\" placeholder=\"Name\" class=\"form-control input-md\" required=\"\" value=\"" . $cocktail["name"] . "\">\n";
                 echo "\n";
                 echo "    </div>\n";
                 echo "</div>\n";
@@ -155,7 +155,7 @@
                 echo "<div class=\"form-group\">\n";
                 echo "    <label class=\"col-md-4 control-label\" for=\"des\">Beschreibung</label>\n";
                 echo "    <div class=\"col-md-7\">\n";
-                echo "        <textarea class=\"form-control\" id=\"des\" name=\"des\">" . utf8_encode($cocktail["des"]) . "</textarea>\n";
+                echo "        <textarea class=\"form-control\" id=\"des\" name=\"des\">" . $cocktail["des"] . "</textarea>\n";
                 echo "    </div>\n";
                 echo "</div>\n";
                 echo "\n";
@@ -186,10 +186,10 @@
                         }
 
                         if($inPOS){
-                            echo "            <option value=\"" . $bottle['ID'] . "\" selected>" . utf8_encode($bottle["name"]) . "</option>\n";
+                            echo "            <option value=\"" . $bottle['ID'] . "\" selected>" . $bottle["name"] . "</option>\n";
                         }
                         else{
-                            echo "            <option value=\"" . $bottle['ID'] . "\">" . utf8_encode($bottle["name"]) . "</option>\n";
+                            echo "            <option value=\"" . $bottle['ID'] . "\">" . $bottle["name"] . "</option>\n";
                         }
                     }
                     echo "        </select>\n";
@@ -284,8 +284,8 @@
                 echo "<div class=\"form-group\">\n";
                 echo "    <label class=\"col-md-4 control-label\" for=\"picture\">Bild</label>\n";
                 echo "    <div class=\"col-md-4\">\n";
-                echo "<img height=\"75\" src=\"data:image;base64, " . $data["picture"] . "\"/>\n";
-                echo "        <input id=\"picture\" name=\"picture\" type=\"hidden\" value=\"" . $data["picture"] . "\">\n";
+                echo "<img height=\"75\" src=\"data:image;base64, " . base64_encode($data["picture"]) . "\"/>\n";
+                echo "        <input id=\"picture\" name=\"picture\" type=\"hidden\" value=\"" . base64_encode($data["picture"]) . "\">\n";
                 echo "    </div>\n";
                 echo "</div>";
                 echo "        <input id=\"countPorts\" name=\"countPorts\" type=\"hidden\" value=\"" . count($data["bottles"]) . "\">\n";
@@ -306,10 +306,10 @@
                         }
 
                         if($inPOS){
-                            echo "            <option value=\"" . $bottle['ID'] . "\" selected>" . utf8_encode($bottle["name"]) . "</option>\n";
+                            echo "            <option value=\"" . $bottle['ID'] . "\" selected>" . $bottle["name"] . "</option>\n";
                         }
                         else{
-                            echo "            <option value=\"" . $bottle['ID'] . "\">" . utf8_encode($bottle["name"]) . "</option>\n";
+                            echo "            <option value=\"" . $bottle['ID'] . "\">" . $bottle["name"] . "</option>\n";
                         }
                     }
                     if(!$exist)

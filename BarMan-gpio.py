@@ -10,7 +10,7 @@
 import RPi.GPIO as GPIO
 import sys;
 
-def init-GPIO():
+def init_GPIO():
     #init GPIO
     GPIO.setmode(GPIO.BCM)
 
@@ -31,7 +31,7 @@ def init-GPIO():
     #Port 8
     GPIO.setup(24, GPIO.OUT)
     
-def set-GPIO-OFF():
+def set_GPIO_OFF():
     GPIO.output(17, GPIO.LOW)
 	GPIO.output(22, GPIO.LOW)
 	GPIO.output(5, GPIO.LOW)
@@ -43,41 +43,41 @@ def set-GPIO-OFF():
     
 
 port = int(sys.argv[1])
-init-GPIO()
-set-GPIO-OFF()
+init_GPIO()
+set_GPIO_OFF()
 
 if port == 1:
-    set-GPIO-OFF()
+    set_GPIO_OFF()
 	GPIO.output(17, GPIO.HIGH)
     print("PORT 1 - ON")
 elif port == 2:
-    set-GPIO-OFF()
+    set_GPIO_OFF()
 	GPIO.output(22, GPIO.HIGH)
     print("PORT 2 - ON")
 elif port == 3:
-    set-GPIO-OFF()
+    set_GPIO_OFF()
 	GPIO.output(5, GPIO.HIGH)
     print("PORT 3 - ON")
 elif port == 4:
-    set-GPIO-OFF()
+    set_GPIO_OFF()
 	GPIO.output(6, GPIO.HIGH)
     print("PORT 4 - ON")
 elif port == 5:
-    set-GPIO-OFF()
+    set_GPIO_OFF()
 	GPIO.output(13, GPIO.HIGH)
     print("PORT 5 - ON")
 elif port == 6:
-    set-GPIO-OFF()
+    set_GPIO_OFF()
 	GPIO.output(26, GPIO.HIGH)
     print("PORT 6 - ON")
 elif port == 7:
-    set-GPIO-OFF()
+    set_GPIO_OFF()
 	GPIO.output(23, GPIO.HIGH)
     print("PORT 7 - ON")
 elif port == 8:
-	set-GPIO-OFF()
+	set_GPIO_OFF()
 	GPIO.output(24, GPIO.HIGH)
     print("PORT 8 - ON")
 else:
-	set-GPIO-OFF()
+	set_GPIO_OFF()
     print("ALL PORTS LOW")

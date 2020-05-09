@@ -39,7 +39,7 @@ def init_GPIO():
     #Port 7
     GPIO.setup(PUMP7, GPIO.OUT)
     #Port 8
-    GPIO.setup(PUMP7, GPIO.OUT)
+    GPIO.setup(PUMP8, GPIO.OUT)
     
 def set_GPIO_OFF():
     GPIO.output(PUMP1, GPIO.LOW)

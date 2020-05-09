@@ -42,14 +42,14 @@ def init_GPIO():
     GPIO.setup(PUMP8, GPIO.OUT)
     
 def set_GPIO_OFF():
-    GPIO.output(PUMP1, GPIO.LOW)
-    GPIO.output(PUMP2, GPIO.LOW)
-    GPIO.output(PUMP3, GPIO.LOW)
-    GPIO.output(PUMP4, GPIO.LOW)
-    GPIO.output(PUMP5, GPIO.LOW)
-    GPIO.output(PUMP6, GPIO.LOW)
-    GPIO.output(PUMP7, GPIO.LOW)
-    GPIO.output(PUMP8, GPIO.LOW)
+    GPIO.output(PUMP1, GPIO.HIGH)
+    GPIO.output(PUMP2, GPIO.HIGH)
+    GPIO.output(PUMP3, GPIO.HIGH)
+    GPIO.output(PUMP4, GPIO.HIGH)
+    GPIO.output(PUMP5, GPIO.HIGH)
+    GPIO.output(PUMP6, GPIO.HIGH)
+    GPIO.output(PUMP7, GPIO.HIGH)
+    GPIO.output(PUMP8, GPIO.HIGH)
     
 if len(sys.argv) > 1:
     port = int(float(sys.argv[1]))
@@ -61,35 +61,35 @@ set_GPIO_OFF()
 
 if port == 1:
     set_GPIO_OFF()
-    GPIO.output(PUMP1, GPIO.HIGH)
+    GPIO.output(PUMP1, GPIO.LOW)
     print("PORT 1 - ON")
 elif port == 2:
     set_GPIO_OFF()
-    GPIO.output(PUMP2, GPIO.HIGH)
+    GPIO.output(PUMP2, GPIO.LOW)
     print("PORT 2 - ON")
 elif port == 3:
     set_GPIO_OFF()
-    GPIO.output(PUMP3, GPIO.HIGH)
+    GPIO.output(PUMP3, GPIO.LOW)
     print("PORT 3 - ON")
 elif port == 4:
     set_GPIO_OFF()
-    GPIO.output(PUMP4, GPIO.HIGH)
+    GPIO.output(PUMP4, GPIO.LOW)
     print("PORT 4 - ON")
 elif port == 5:
     set_GPIO_OFF()
-    GPIO.output(PUMP5, GPIO.HIGH)
+    GPIO.output(PUMP5, GPIO.LOW)
     print("PORT 5 - ON")
 elif port == 6:
     set_GPIO_OFF()
-    GPIO.output(PUMP6, GPIO.HIGH)
+    GPIO.output(PUMP6, GPIO.LOW)
     print("PORT 6 - ON")
 elif port == 7:
     set_GPIO_OFF()
-    GPIO.output(PUMP7, GPIO.HIGH)
+    GPIO.output(PUMP7, GPIO.LOW)
     print("PORT 7 - ON")
 elif port == 8:
     set_GPIO_OFF()
-    GPIO.output(PUMP8, GPIO.HIGH)
+    GPIO.output(PUMP8, GPIO.LOW)
     print("PORT 8 - ON")
 else:
     set_GPIO_OFF()
